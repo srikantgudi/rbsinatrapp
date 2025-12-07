@@ -1,0 +1,25 @@
+<div>
+    <div class="page-title">Order details</div>
+    <div>Order # <%= @order[:order_id] %> | Dated: <%= @order[:order_date].strftime("%d-%b-%Y") %></div>
+    <div>
+        <table width="100%">
+            <thead>
+                <tr>
+                <td width="50%">Product name</td>
+                <td align="right">Quantity</td>
+                <td nowrap align="right">Unit price</td>
+                <td nowrap align="right">Line total</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @odetails.each do |od| %>
+                <tr>
+                    <td><%= od[:product_name]%></td>
+                    <td align="right"><%= od[:quantity] %></td>
+                    <td align="right"><%= "%.2f" % od[:od_unit_price] %></td>
+                    <td align="right"><%= "%.2f" % (od[:od_unit_price]*od[:quantity].to_f) %></td>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

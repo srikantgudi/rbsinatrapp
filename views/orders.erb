@@ -1,0 +1,39 @@
+<div class="grid12">
+    <div>
+        <div class="dflex">
+            <div class="page-title">Customer Orders</div>
+            <% if popover %>
+            <button popovertarget="orders" popovertargetaction="hide">
+                Close
+            </button>
+            <% end %>
+        </div>
+        <div>Customer: <%= @customer[:company_name] %> | <%= @customer[:city] %></div>
+        <table>
+            <thead>
+            <tr>
+                <td>action</td>
+                <td>Order ID</td>
+                <td>Order Date</td>
+                <td>Shipped Date</td>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <% @orders.each do |row| %>
+                <tr>
+                    <td>
+                        <button onclick="showdata('odetails', '/order/<%=row[:order_id]%>/details')">
+                            Details
+                        </button>
+                    </td>
+                    <td><%= row[:order_id] %></td>
+                    <td><%= row[:order_date] %></td>
+                    <td><%= row[:shipped_date] %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+    <div id="odetails">- details -</div>
+</div>

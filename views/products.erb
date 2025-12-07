@@ -1,0 +1,32 @@
+<div>
+    <div class="dflex">
+        <div class="page-title">Products</div>
+        <% if popover %>
+        <button popovertarget="catproducts" popovertargetaction="hide">
+            Close
+        </button>
+        <% end %>
+    </div>
+    <div style="height: 70vh;overflow-y: auto;">
+        <table>
+            <thead>
+                <tr>
+                    <td>Product name</td>
+                    <td>Qty / unit</td>
+                    <td align="right">Price</td>
+                    <td align="right">Reorder level</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @products.each do |p| %>
+                <tr>
+                    <td><%= p[:product_name] %></td>
+                    <td><%= p[:quantity_per_unit] %></td>
+                    <td align="right"><%= "%.2f" % p[:unit_price] %></td>
+                    <td align="right"><%= p[:reorder_level] %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

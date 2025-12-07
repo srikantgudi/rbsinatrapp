@@ -1,0 +1,33 @@
+<div>
+    <div class="data-list">
+        <div class="page-title">Customers</div>
+        <table width="100%">
+          <thead>
+            <tr>
+              <th>Company name</th>
+              <th>Contact title</th>
+              <th>Contact name</th>
+              <th>City</th>
+              <th>Postal code</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @customers.each do |row| %>
+              <tr>
+                <td><button onclick="showdata('orders','/customer/<%=row[:customer_id]%>/orders')"
+                  popovertarget="orders"><%= row[:company_name] %></button></td>
+                <td><%= row[:contact_title] %></td>
+                <td><%= row[:contact_name] %></td>
+                <td><%= row[:city] %></td>
+                <td><%= row[:postal_code] %></td>
+                <td><%= row[:country] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    <div popover="auto" id="orders">
+      orders list
+    </div>
+</div>

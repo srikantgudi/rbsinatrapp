@@ -1,0 +1,27 @@
+<div>
+    <div class="dflex">
+        <div style="height: 70vh;overflow-y: auto;">
+            <div class="page-title">Categories</div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Category name</td>
+                        <td>Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @categories.each do |c| %>
+                    <tr onclick="showproducts(<%= c[:category_id] %>)">
+                        <td><%= c[:category_name] %></button></td>
+                        <td><%= c[:description] %></td>
+                        <td><button popovertarget="catproducts">Show</button></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div popover="auto" id="catproducts">
+            -- products for category selected --
+        </div>
+    </div>
+</div>

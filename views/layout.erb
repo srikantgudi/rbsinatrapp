@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/app.js" defer></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <nav>
+        <h1>Sinatra web app using Sequel</h1>
+        <div>
+            <a href="/">Home</a>
+            <a href="/categories">Categories</a>
+            <a href="/products">Products</a>
+            <a href="/customers">Customers</a>
+        </div>
+        <div>
+            <small>
+                Developed by Srikant-Bengaluru
+            </small>
+        </div>
+    </nav>
+    <main>
+        <%= yield %>
+    </main>
+</body>
+</html>
